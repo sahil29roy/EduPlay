@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'points_reward',
+        'icon',
+    ];
+
+    public function userProgress()
+    {
+        return $this->hasMany(UserProgress::class);
+    }
 }
